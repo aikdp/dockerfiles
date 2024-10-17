@@ -1,9 +1,9 @@
-#First checking with CMD that by using ping command
+#1.First checking with CMD that by using ping command
 # FROM almalinux:9
 # CMD ["ping", "google.com"]
 
 
-# #Now chekcing with ENTRYPOINT instruction
+# 2.Now chekcing with ENTRYPOINT instruction
 # FROM almalinux:9
 # ENTRYPOINT ["ping", "google.com"]
 
@@ -14,3 +14,7 @@
 FROM almalinux:9
 CMD ["google.com"]
 ENTRYPOINT ["ping"]
+
+# 1.	CMD can be overridden at run time
+# 2.	You cannot override ENTRYPOINT like a CMD. If you try to do, it will go and append to the entrypoint command 
+# 3.	For better results and best practices, : CMD can provide arguments to ENTRYPOINT. So you can mention default arguments through CMD and you can override them at run time. (This is called Dynamic)
