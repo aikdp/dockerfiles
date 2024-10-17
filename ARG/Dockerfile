@@ -82,3 +82,16 @@ ARG course="AWS Devops" \
 ENV duration=$duration      
 RUN echo "Course is: $course, Company is: $company, and Duration is: $duration, Version is: $version"
 CMD ["sleep", "100"]
+
+
+
+
+
+# Question :ARG vs ENV:
+# 1.ENV variables can be accessed in image build time and container both.
+# 2.ARG is only accessed at the time of image creation.
+# 3. You can use ARG instruction before FROM in one special case, i.e., to supply version to the       base image.
+# 4.ARG instruction is only valid until before FROM instruction, it cannot be accessed after FROM.
+
+# Question: How can I access ARG values inside containers?
+# Ans: You can set ARG value to ENV variables
