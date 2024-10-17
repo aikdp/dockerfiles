@@ -59,10 +59,26 @@
 
 
 #3rd Case Check ARG  Instruction with default version
+# ARG version
+# FROM almalinux:${version:-9}
+# ARG course="AWS Devops" \
+#     company="joindveops" \
+#     duration="4 months"
+# RUN echo "Course is: $course, Company is: $company, and Duration is: $duration, Version is: $version"
+# CMD ["sleep", "100"]
+
+#when build image:--> docker build -t arg:v1  --build-arg course=AZURE .
+# ANS: nothing pulls after FROM (here we set the vars after FROM instru but we are not getting arg variable after FROM
+# ARG instruction is only valid until before FROM instruction, it cannot be accessed after FROM
+
+
+#Question: How can I access ARG values inside containers?
+#Ans: You can set ARG value to ENV variables
 ARG version
 FROM almalinux:${version:-9}
 ARG course="AWS Devops" \
     company="joindveops" \
     duration="4 months"
+ENV duration=$duration      
 RUN echo "Course is: $course, Company is: $company, and Duration is: $duration, Version is: $version"
 CMD ["sleep", "100"]
