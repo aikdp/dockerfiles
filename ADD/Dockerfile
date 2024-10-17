@@ -15,6 +15,6 @@ CMD ["nginx", "-g", "daemon off;"]
 
 
 
-# ADD also does same as COPY , but it ahs 2 extra capabilities
+# ADD instruction also does same as COPY , but it has 2 extra capabilities
 # 1.	It can get files from internet 
 # 2.	It can get extract the files into image (unzip or unarchive)
