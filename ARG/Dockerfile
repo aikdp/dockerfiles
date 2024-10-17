@@ -36,13 +36,13 @@
 
 
 # 3rd Case Check ARG  Instruction 
-ARG version
-FROM almalinux:${version}
-ARG course="AWS Devops" \
-    company="joindveops" \
-    duration="4 months"
-RUN echo "Course is: $course, Company is: $company, and Duration is: $duration"
-CMD ["sleep", "100"]
+# ARG version
+# FROM almalinux:${version}
+# ARG course="AWS Devops" \
+#     company="joindveops" \
+#     duration="4 months"
+# RUN echo "Course is: $course, Company is: $company, and Duration is: $duration"
+# CMD ["sleep", "100"]
 
 #Pass version at when build time: docker build -t arg:v1 --build-arg course=AZURE --build-arg version=9 .
 #From will not allow ARG to after FROM inst, means ARG is invalid after FROM.
@@ -56,3 +56,13 @@ CMD ["sleep", "100"]
 # RUN echo "Course is: $course, Company is: $company, and Duration is: $duration"
 # CMD ["sleep", "100"]
 # #It pulls Default version at when build time: docker build -t arg:v1 --build-arg course=AZURE .
+
+
+#3rd Case Check ARG  Instruction with default version
+ARG version
+FROM almalinux:${version:-9}
+ARG course="AWS Devops" \
+    company="joindveops" \
+    duration="4 months"
+RUN echo "Course is: $course, Company is: $company, and Duration is: $duration, Version is: $version"
+CMD ["sleep", "100"]
