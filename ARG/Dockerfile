@@ -36,10 +36,12 @@
 
 
 #3rd Case Check ARG  Instruction 
-ARg version
+ARG version
 FROM almalinux:$version
 ARG course="AWS Devops" \
     company="joindveops" \
     duration="4 months"
 RUN echo "Course is: $course, Company is: $company, and Duration is: $duration"
 CMD ["sleep", "100"]
+
+#Pass version at when build time: docker build -t arg:v1 --build-arg course=AZURE --build-arg version=9 .
