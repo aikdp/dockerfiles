@@ -17,3 +17,7 @@ ENV course="AWS Devops" \
     duration="4 months"
 RUN echo "Course is: $course, Company is: $company, and Duration is: $duration"
 CMD ["sleep", "100"]
+
+# ARG vs ENV :
+# 1.	ENV variables can be accessed in image build time and container run time, both.
+# 2.	ARG is only accessed at the time of image creation.
