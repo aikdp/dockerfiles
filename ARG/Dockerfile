@@ -37,7 +37,7 @@
 
 #3rd Case Check ARG  Instruction 
 ARG version
-FROM almalinux:$version
+FROM almalinux:${version}
 ARG course="AWS Devops" \
     company="joindveops" \
     duration="4 months"
